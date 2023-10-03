@@ -46,12 +46,12 @@ function init() {
             {
                 type:'input',
                 message: questions[4],
-                name: 'contribution',
+                name: 'contributing',
             },
             {
                 type:'input',
                 message: questions[5],
-                name: 'testing',
+                name: 'tests',
             },
             {
                 type: 'list',

@@ -11,7 +11,7 @@ function renderLicenseBadge(license) {
     case 'MPL':
       return `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`;
     default:
-      return '';
+      return "";
   }
 }
 
@@ -34,12 +34,19 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  const licenseLink = renderLicenseLink(license);
+  if (license === 'None') {
+    return `This project is unlicensed. For questions, refer to the [Questions](#questions) section`;
+  } else {
+    return `Licenced under the [${license} license](${licenseLink})`;
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   const badge = renderLicenseBadge(data.license);
-  const licenseLink = renderLicenseLink(data.license);
+  const license = renderLicenseSection(data.license);
   return `# ${data.title}
 
 ## Description
@@ -66,7 +73,7 @@ ${data.usage}
 
 ## License
 
-Licenced under the [${data.license} license](${licenseLink})
+${license}
 
 ## Contributing
 

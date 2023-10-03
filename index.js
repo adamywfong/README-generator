@@ -24,14 +24,55 @@ function init() {
     inquirer
         .prompt([
             {
-            type: 'input',
-            message: questions[0],
-            name: 'title',
+                type: 'input',
+                message: questions[0],
+                name: 'title',
+            },
+            {
+                type: 'input',
+                message: questions[1],
+                name: 'description',
+            },
+            {
+                type:'input',
+                message: questions[2],
+                name: 'installation',
+            },
+            {
+                type:'input',
+                message: questions[3],
+                name: 'usage',
+            },
+            {
+                type:'input',
+                message: questions[4],
+                name: 'contribution',
+            },
+            {
+                type:'input',
+                message: questions[5],
+                name: 'testing',
+            },
+            {
+                type: 'list',
+                message: questions[6],
+                name: 'license',
+                choices: ['MIT', 'Apache', 'GPL', 'MPL', 'None'],
+            },
+            {
+                type:'input',
+                message: questions[7],
+                name: 'github',
+            },
+            {
+                type:'input',
+                message: questions[8],
+                name: 'email',
             },
         ])
         .then((response) =>
             {const markDown = genMD(response);
-            fs.writeFile('README.md', markDown, (err) =>
+            fs.writeFile('README-test.md', markDown, (err) =>
                err ? console.error(err) : console.log('Success!'))
             });
 }   

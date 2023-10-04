@@ -69,7 +69,7 @@ function init() {
         ])
         .then((response) =>
             {const markDown = genMD(response);
-            fs.writeFile('README-demo.md', markDown, (err) =>
+            fs.writeFile('README.md', markDown, (err) =>
                err ? console.error(err) : console.log('Success!'))
             });
 }   
